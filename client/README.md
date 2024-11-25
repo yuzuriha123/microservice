@@ -1,3 +1,10 @@
+SAU KHI  BUILD CÁC CONTAINER THÌ NÓ BỊ LỖI THƯ VIỆN BCRYPT :
+docker exec -it user sh
+rm -rf node_modules
+npm install bcrypt
+exit
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
