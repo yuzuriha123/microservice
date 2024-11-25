@@ -1,0 +1,71 @@
+version: '3'
+services:
+  comment:
+    build: 
+      context: ./Comment
+      dockerfile: dockerfile
+    container_name: comment
+    ports:
+      - "4001:4001"
+    restart: "always"
+    volumes:
+      - ./Comment:/app
+      - /app/node_modules
+    networks:
+      - compose_network
+  evenbus:
+    build: 
+      context: ./eventbus
+      dockerfile: dockerfile
+    container_name: eventbus
+    ports:
+      - "4010:4010"
+    restart: "always"
+    volumes:
+      - ./eventbus:/app
+      - /app/node_modules
+    networks:
+      - compose_network
+  post:
+    build: 
+      context: ./Post
+      dockerfile: dockerfile
+    container_name: post
+    ports:
+      - "4000:4000"
+    restart: "always"
+    volumes:
+      - ./Post:/app
+      - /app/node_modules
+    networks:
+      - compose_network
+  user:
+    build: 
+      context: ./User
+      dockerfile: dockerfile
+    container_name: user
+    ports:
+      - "4003:4003"
+    restart: "always"
+    volumes:
+      - ./User:/app
+      - /app/node_modules
+    networks:
+      - compose_network
+  client:
+    build: 
+      context: ./client
+      dockerfile: dockerfile
+    container_name: client
+    ports:
+      - "3000:3000"
+    restart: "always"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - compose_network
+networks:
+  compose_network:
+
+
